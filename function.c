@@ -21,7 +21,7 @@ MEDECIN saisie(){
         scanf("%s", a.MOTPASS2);
 
         if (check(a.MOTPASS1, a.MOTPASS2) != 0) {
-            printf("Les mots de passe sont différents. Réessayez.\n");
+            printf("Les mots de passe sont differents. Reessayez.\n");
         }
     } while (check(a.MOTPASS1, a.MOTPASS2) != 0);
 }
@@ -33,6 +33,9 @@ PATIENT saisi(){
      scanf("%s",a.NOM);
      printf(" Prenom\n");
      scanf("%s",a.PRENOM);
+     printf(" SEXE:homme/femme \n");
+     scanf("%s",a.SEXE);
+    
         do {
         printf("Le mot de passe : ");
         scanf("%s", a.MOTPASS1);
@@ -51,9 +54,9 @@ CABINET sais(){
      scanf("%s",a.NOM);
      printf("  ADRESSE DU CABINET \n");
      scanf("%s",a.ADRESSE);
-     printf("   URL à ajouter \n");
+     printf("   URL a ajouter \n");
      scanf("%s",a.Url);
-     printf("   Spécialité \n");
+     printf("   Specialite \n");
      scanf("%s",a.SPECIALITY);
 }
 

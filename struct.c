@@ -7,7 +7,8 @@ struct  medecin{
      int immatricule;
      char NOM[20];
      char PRENOM[20];
-     char MOTPASS[20];
+     char MOTPASS1[20];
+     char MOTPASS2[20];
 };
 typedef struct medecin MEDECIN;
 struct   patient{
@@ -15,7 +16,9 @@ struct   patient{
      char CIN[10];
      char NOM[20];
      char PRENOM[20];
-     char MOTPASS[20];
+     char MOTPASS1[20];
+     char MOTPASS2[20];
+     char SEXE[20];
 };
 typedef struct patient PATIENT;
 struct  cabinet{
