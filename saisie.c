@@ -9,15 +9,15 @@ void saisiemedecin( MEDECIN* a){
     printf(" l'immatricule \n");
      scanf("%d",&a->immatricule);
      printf("  Nom \n"); fflush(stdin);
-     scanf("%s",a->NOM);
+     gets(a->NOM);
      printf("  Prenom \n");fflush(stdin);
-     scanf("%s",a->PRENOM);
+     gets(a->PRENOM);
      
      do {
         printf("Mot de passe : ");fflush(stdin);
-        scanf("%s", a->MOTPASS1);
+        gets(a->MOTPASS1);
         printf("Reécrire le mot de passe : ");fflush(stdin);
-        scanf("%s", a->MOTPASS2);
+        gets(a->MOTPASS2);
 
         if (check(a->MOTPASS1, a->MOTPASS2) != 0) {
             printf("Les mots de passe sont différents. Réessayez.\n");
@@ -26,19 +26,21 @@ void saisiemedecin( MEDECIN* a){
 }
 void saisiepatient( PATIENT* a){
      printf(" CIN \n");fflush(stdin);
-     scanf("%s",a->CIN);
+     gets(a->CIN);
      printf(" Nom\n");fflush(stdin);
-     scanf("%s",a->NOM);
+     gets(a->NOM);
      printf(" Prenom\n");fflush(stdin);
-     scanf("%s",a->PRENOM);
+     gets(a->PRENOM);
      printf(" SEXE:homme/femme \n");
-     scanf("%s",a->SEXE);
+     gets(a->SEXE);
+     printf(" DATE DE NAISSANCE / \n");
+     scanf("%d%s%d",&a->DATENAISSANCE.jour,a->DATENAISSANCE.mois,&a->DATENAISSANCE.annee);
     
         do {
         printf("Le mot de passe : ");fflush(stdin);
-        scanf("%s", a->MOTPASS1);
+        gets(a->MOTPASS1);
         printf("Reecrire le mot de passe : ");fflush(stdin);
-        scanf("%s", a->MOTPASS2);
+        gets(a->MOTPASS2);
 
         if (check(a->MOTPASS1, a->MOTPASS2) != 0) {
             printf("Les mots de passe sont differents. Reessayez.\n");
@@ -48,13 +50,16 @@ void saisiepatient( PATIENT* a){
      
 void saisiecabinet(CABINET* a){
      printf("  NOM DU CABINET \n");fflush(stdin);
-     scanf("%s",a->NOM);
+     gets(a->NOM);
      printf("  ADRESSE DU CABINET \n");
-     scanf("%s",a->ADRESSE);
+     gets(a->ADRESSE);
      printf("   URL a ajouter \n"); fflush(stdin);
-     scanf("%s",a->Url);
+     gets(a->Url);
      printf("   Specialite \n"); fflush(stdin);
-     scanf("%s",a->SPECIALITY);
+     gets(a->SPECIALITY);
+     printf(" VILLE \n"); 
+     gets(a->ville);
+    
 }
 void saisieemploye(EMPLOYE* a){
      printf(" NOM D'EMPLOYE \n");fflush(stdin);
@@ -67,39 +72,30 @@ void saisieemploye(EMPLOYE* a){
      scanf("%d",&a->age);
      }
 void saisieordonnance(ORDONNANCE* a){
-     int n;
-     printf(" FICHE PATIENT \n");fflush(stdin);
-     scanf("%d",&a->FICHE_PAT);
+     
      printf("  EXAMENS ADDITIVES SI BESOIN \n");fflush(stdin);
-     scanf("%s",a->exam);
-     printf("NOMBRE DE MEDICAMENTS");
-     scanf("%d",&n);
-     for(int i=0;i<n;i++){
-     printf("  LES MEDICAMENTS \n");fflush(stdin);
-     scanf("%s",a->medicament);
-     printf("  PRESCRIPTION \n");fflush(stdin);
-     scanf("%s",a->prescription);
-}}
+     gets(a->exam);
+}
 void saisierdv(RDV* a){
     printf(" DATE=j/m/a \n");
     scanf("%d%s%d",&a->DATE.jour,a->DATE.mois,&a->DATE.annee);
     printf(" NOM DU CABINET OU MEDECIN \n");fflush(stdin);
-    scanf("%s",a->NOM_cabinet);
+    gets(a->NOM_cabinet);
     printf("  SPECIALITE \n");fflush(stdin);
-    scanf("%s",a->SPECIALITY);
+    gets(a->SPECIALITY);
     printf("cas : CONSULTATION / CONTROLE / URGENTE en majscule \n"); fflush(stdin);
     gets(a->cas);
     
 }
 void saisieapt(CERTI_APT* a){
     printf(" CIN : ");fflush(stdin);
-    scanf("%s",a->CIN);
+    gets(a->CIN);
     printf(" DATE : ");
     scanf("%d%s%d",&a->DATE.jour,a->DATE.mois,&a->DATE.annee);
     printf(" ETAT: ");fflush(stdin);
     gets(a->etat);   
     printf(" PROFESSION: ");fflush(stdin);
-    scanf("%s",a->prof_pat);
+    gets(a->prof_pat);
 }
 void saisiemed(CERTI_MED* e){
     printf(" CIN : ");
@@ -119,13 +115,4 @@ void saisiecaisse(CAISSE *a){
     printf(" IMPAYE \n");
     scanf("%f",&a->impaye);
 }
-int main(){
-      CAISSE p;
-       
-         saisiecaisse(&p);
-        
-
-    
-     
-     return 0;
-}
+ 

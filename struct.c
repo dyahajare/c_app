@@ -5,59 +5,80 @@
 
 struct  medecin{
      int immatricule;
-     char NOM[20];
-     char PRENOM[20];
-     char MOTPASS1[20];
-     char MOTPASS2[20];
+     char NOM[50];
+     char PRENOM[50];
+     char MOTPASS1[50];
+     char MOTPASS2[50];
 };
 typedef struct medecin MEDECIN;
-struct   patient{
-     int FICHE_PAT;
-     char CIN[10];
-     char NOM[20];
-     char PRENOM[20];
-     char MOTPASS1[20];
-     char MOTPASS2[20];
-     char SEXE[20];
-};
-typedef struct patient PATIENT;
+
 struct  cabinet{
-    char NOM[20];
+    char NOM[50];
     char ADRESSE[50];
     char Url[100];
     char SPECIALITY[50];
+    char ville[20];
 };
 typedef struct cabinet CABINET;
-struct  caisse{
-    float impaye;
-    float depense;
-    float recette;
-};
-typedef struct caisse CAISSE;
+  
 struct employe{
-    char NOM[20];
-    char PRENOM[20];
+    char NOM[50];
+    char PRENOM[50];
     int age;
-    char PROFESSION[20];
+    char PROFESSION[50];
 };
 typedef struct employe EMPLOYE;
 struct DATE{
     int jour ;
     int annee;
-    char mois[20];
+    char mois[50];
 };
 typedef struct DATE date;
+struct   patient{
+     int FICHE_PAT;
+     char CIN[50];
+     char NOM[50];
+     char PRENOM[50];
+     char MOTPASS1[50];
+     char MOTPASS2[50];
+     char SEXE[50];
+     int assur;
+     date DATENAISSANCE; 
+};
+typedef struct patient PATIENT;
+struct  caisse{
+    float impaye;
+    float  depense;
+    float  recette;
+    date DATE;
+}; 
+typedef struct caisse CAISSE;
 struct rdv{
     date DATE;
-    char NOM_cabinet[20];
+    char NOM_cabinet[50];
     char SPECIALITY[50];
-    char cas[20];
+    char cas[50];
 };
 typedef struct rdv RDV;
 struct ordonnance{
-    int FICHE_PAT;
-    char exam[20];
-    char medicament[30];
-    int nbr_dejours;
+    char exam[50];
+    char medicament[50];
+    char prescription[50];
 };
 typedef struct ordonnance ORDONNANCE;
+ 
+
+struct certi_apt{
+    char CIN[10];
+    date DATE;
+    char etat[50];
+    char prof_pat[30];
+};
+typedef struct certi_apt CERTI_APT;
+
+struct certi_med{
+    char CIN[50];
+    int nbr_jour;
+    char cause[100];
+};
+typedef struct certi_med CERTI_MED;
